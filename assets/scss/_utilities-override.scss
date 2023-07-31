@@ -1,0 +1,31 @@
+$custom-utilities: (
+  "max-width":
+    map-merge(
+      map-get($utilities, "max-width"),
+      (
+        values:
+          map-merge(
+            map-get(map-get($utilities, "max-width"), "values"),
+            (
+              670: 41.875rem,
+            )
+          ),
+      )
+    ),
+  "width":
+    map-merge(
+      map-get($utilities, "width"),
+      (
+        values:
+          map-merge(
+            map-get(map-get($utilities, "width"), "values"),
+            (
+              85: 85%,
+            )
+          ),
+      )
+    ),
+);
+
+// Merges $utilities map with $custom-utilities
+$utilities: map-merge($utilities, $custom-utilities);
