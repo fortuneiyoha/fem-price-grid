@@ -4,16 +4,18 @@ This is a solution to the [Single price grid component challenge on Frontend Men
 
 ## Table of contents
 
-- [Overview](#overview)
-  - [The challenge](#the-challenge)
-  - [Screenshot](#screenshot)
-  - [Links](#links)
-- [My process](#my-process)
-  - [Technology Used](#technology-used)
-  - [What I Learned](#what-i-learned)
-  - [Continued development](#continued-development)
-  - [Useful resources](#useful-resources)
-- [Author](#author)
+- [Frontend Mentor - Single price grid component solution](#frontend-mentor---single-price-grid-component-solution)
+  - [Table of contents](#table-of-contents)
+  - [Overview](#overview)
+    - [The challenge](#the-challenge)
+    - [Screenshot](#screenshot)
+    - [Links](#links)
+  - [My process](#my-process)
+    - [Technology used](#technology-used)
+    - [What I learned](#what-i-learned)
+    - [Continued development](#continued-development)
+    - [Useful resources](#useful-resources)
+  - [Author](#author)
 
 ## Overview
 
@@ -47,16 +49,15 @@ This project was built using the following frontend technologies and methodologi
 
 - **Semantic HTML5 markup:** To provide a clear and meaningful structure to the content.
 - **SASS:** To write CSS more efficiently with nested rules, variables, and mixins.
-<!-- ! Fix 'bootstrap' description -->
 - **Bootstrap:** A popular frontend framework that provides a set of pre-designed HTML, CSS, and JavaScript components and styles. It helps developers create responsive and visually appealing websites with ease.
 
 ### What I learned
 
-During the completion of this challenge, I learned how to leverage Bootstrap's source files and customize them using SASS. By utilizing Bootstrap, I gained a deeper understanding of its components and how they contribute to a streamlined and responsive web development process.
+During the completion of this challenge, I learned how to leverage Bootstrap's source files and customize them using SASS. By utilizing Bootstrap, I gained a deeper understanding of its components and how they contribute to a streamlined and responsive web development process. I also gained proficiency in utilizing a tool called Gulp to automate my workflow. This involved tasks such as compiling and bundling specific project files efficiently.
 
 ### Continued development
 
-Moving forward, I will continue to utilize Bootstrap to customize default styles or create tailored designs for any future projects. It saves time and effort, allowing me to focus more on creating unique user experiences.
+Moving forward, I will continue to utilize Gulp to automate repetitive tasks in my web development workflow, and Bootstrap to customize default styles or create tailored designs for any future projects. This approach saves time and effort, enabling me to concentrate on creating unique user experiences.
 
 ### Useful resources
 
