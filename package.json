@@ -2,21 +2,24 @@
   "name": "fem-price-grid",
   "version": "1.0.0",
   "description": "This is a solution to the [Single price grid component challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/single-price-grid-component-5ce41129d0ff452fec5abbbc). Frontend Mentor challenges help you improve your coding skills by building realistic projects.",
-  "main": "index.js",
+  "main": "gulpfile.js",
   "author": "Fortune Iyoha",
   "license": "ISC",
   "scripts": {
-    "watch:css": "postcss assets/css/style.css -o dist/style.min.css -w",
-    "build:css": "postcss assets/css/style.css -o dist/style.min.css"
+    "start": "gulp"
   },
   "dependencies": {
-    "bootstrap": "^5.3.1"
+    "bootstrap": "^5.3.3"
   },
   "devDependencies": {
-    "autoprefixer": "^10.4.14",
-    "cssnano": "^6.0.1",
-    "postcss": "^8.4.27",
-    "postcss-cli": "^9.1.0",
-    "postcss-preset-env": "^9.1.0"
+    "autoprefixer": "^10.4.19",
+    "gulp": "^5.0.0",
+    "gulp-cli": "^3.0.0",
+    "gulp-postcss": "^10.0.0",
+    "gulp-purgecss": "^6.0.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-replace": "^1.1.4",
+    "gulp-sass": "^5.1.0",
+    "sass": "^1.74.1"
   }
 }
