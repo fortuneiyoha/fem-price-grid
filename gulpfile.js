@@ -1,5 +1,5 @@
 // Initialize modules
-const { src, dest, watch, task, series } = require("gulp");
+const { src, dest, watch, series } = require("gulp");
 const sass = require("gulp-sass")(require("sass"));
 const postcss = require("gulp-postcss");
 const autoprefixer = require("autoprefixer");
@@ -16,7 +16,7 @@ const paths = {
 // Sass task: compiles the style.scss file into style.min.css
 function scssTask() {
   return src(paths.scssSource, { sourcemaps: true })
-    .pipe(sass({ outputStyle: "compressed" })) // compile SCSS to CSS
+    .pipe(sass({ outputStyle: "compressed" })) // minify and compile SCSS to CSS
     .pipe(postcss([autoprefixer()])) // PostCSS plugins
     .pipe(rename({ extname: ".min.css" })) // Adds the ".min.css" extension suffix
     .pipe(dest("dist", { sourcemaps: "." })); // put final CSS in dist folder with sourcemap
