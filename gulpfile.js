@@ -1,46 +1,52 @@
 // Initialize modules
-const { src, dest, watch, series } = require("gulp");
+const { src, dest, series, watch } = require("gulp");
 const sass = require("gulp-sass")(require("sass"));
 const postcss = require("gulp-postcss");
 const autoprefixer = require("autoprefixer");
 const rename = require("gulp-rename");
-const replace = require("gulp-replace");
 const purgecss = require("gulp-purgecss");
+const replace = require("gulp-replace");
 
-// Define file paths for SCSS source files and CSS output files
+// Define file paths
 const paths = {
-  scssSource: "assets/scss/**/*.scss",
-  cssOutput: "dist/**/*.css",
+  src: {
+    styles: "assets/scss/**/*.scss",
+    html: "*.html",
+  },
+  dist: {
+    styles: "dist/css",
+  },
 };
 
-// Sass task: compiles the style.scss file into style.min.css
-function scssTask() {
-  return src(paths.scssSource, { sourcemaps: true })
-    .pipe(sass({ outputStyle: "compressed" })) // minify and compile SCSS to CSS
-    .pipe(postcss([autoprefixer()])) // PostCSS plugins
-    .pipe(rename({ extname: ".min.css" })) // Adds the ".min.css" extension suffix
-    .pipe(dest("dist", { sourcemaps: "." })); // put final CSS in dist folder with sourcemap
+// Development tasks
+function compileSass() {
+  return src(paths.src.styles, { sourcemaps: true })
+    .pipe(sass({ outputStyle: "compressed" }).on("error", sass.logError))
+    .pipe(postcss([autoprefixer()]))
+    .pipe(rename({ suffix: ".min" }))
+    .pipe(dest(paths.dist.styles, { sourcemaps: "." }));
 }
 
-// Clean CSS Task: Removes unused CSS from bootstraps source files
-function cleanCSS() {
-  return src(paths.cssOutput)
-    .pipe(purgecss({ content: ["*.html"] }))
-    .pipe(dest("dist"));
+function watchFiles() {
+  watch(paths.src.styles, compileSass);
 }
 
-// Cache Busting Task: Updates the version of the stylesheet
-function cacheBustTask() {
-  var cbString = new Date().getTime();
-  return src(["*.html"])
+// Deployment tasks
+function optimizeStyles() {
+  return src(paths.dist.styles + "/*.css")
+    .pipe(purgecss({ content: [paths.src.html] }))
+    .pipe(dest(paths.dist.styles));
+}
+
+function cacheBust() {
+  const cbString = new Date().getTime();
+  return src(paths.src.html)
     .pipe(replace(/cb=\d+/g, "cb=" + cbString))
     .pipe(dest("."));
 }
 
-// Watch task: watch SCSS files for changes
-function watchTask() {
-  watch(paths.scssSource, series(scssTask, cleanCSS, cacheBustTask));
-}
+exports.dev = series(compileSass, watchFiles);
 
-// Define the default task with series of tasks to run
-exports.default = series(scssTask, cleanCSS, cacheBustTask, watchTask);
+exports.build = series(compileSass, optimizeStyles, cacheBust);
+
+exports.default = series(exports.dev);

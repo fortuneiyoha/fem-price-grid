@@ -6,7 +6,8 @@
   "author": "Fortune Iyoha",
   "license": "ISC",
   "scripts": {
-    "start": "gulp"
+    "dev": "gulp dev",
+    "build": "gulp build"
   },
   "dependencies": {
     "bootstrap": "^5.3.3"
