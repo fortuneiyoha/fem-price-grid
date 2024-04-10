@@ -32,14 +32,8 @@ Users should be able to:
 
 ### Links
 
-<!--
-  * ┌───────────────────────────────────────────────────────────────────┐
-  * │                      Correct the links URL                        │
-  * └───────────────────────────────────────────────────────────────────┘
- -->
-
-- **Solution:** [Add solution URL here](https://your-solution-url.com)
-- **Live Site:** [Add live site URL here](https://your-live-site-url.com)
+- **Solution:** [Frontend Mentor: Single price grid component](https://www.frontendmentor.io/solutions/single-price-grid-component-L0-JY7MiQ-)
+- **Live Site:** [https://fem-price-grid.pages.dev](https://fem-price-grid.pages.dev)
 
 ## My process
 
